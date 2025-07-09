@@ -23,9 +23,9 @@ func checkParserErrors(t *testing.T, p *Parser) {
 
 func TestLetStatement(t *testing.T) {
 	tests := []struct {
-		input string
+		input              string
 		expectedIdentifier string
-		expectedValue any
+		expectedValue      any
 	}{
 		{"let x = 5;", "x", 5},
 		{"let y = 10;", "y", 10},
@@ -81,7 +81,7 @@ func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
 
 func TestReturnStatement(t *testing.T) {
 	tests := []struct {
-		input string
+		input       string
 		expectValue any
 	}{
 		{"return 5;", 5},
@@ -167,10 +167,10 @@ func TestIntegerLiteralExpression(t *testing.T) {
 
 func TestParsingPrefixExpression(t *testing.T) {
 	prefixTests := []struct {
-		input string
+		input    string
 		operator string
-		value any
-	} {
+		value    any
+	}{
 		{"!5;", "!", 5},
 		{"-15;", "-", 15},
 		{"!true", "!", true},
@@ -234,9 +234,9 @@ func testIntegerLiteral(t *testing.T, il ast.Expression, value int64) bool {
 
 func TestParsingInfixExpressions(t *testing.T) {
 	infixTests := []struct {
-		input string
-		leftValue any
-		operator string
+		input      string
+		leftValue  any
+		operator   string
 		rightValue any
 	}{
 		{"5 + 5;", 5, "+", 5},
@@ -284,7 +284,7 @@ func TestParsingInfixExpressions(t *testing.T) {
 
 func TestOperatorPrecedenceParsing(t *testing.T) {
 	tests := []struct {
-		input string
+		input    string
 		expected string
 	}{
 		{
@@ -454,7 +454,7 @@ func testInfixExpression(t *testing.T, exp ast.Expression, left any, operator st
 
 func TestBooleanLiteral(t *testing.T) {
 	tests := []struct {
-		input string
+		input        string
 		booleanValue bool
 	}{
 		{"true;", true},
@@ -513,7 +513,7 @@ func TestIfExpression(t *testing.T) {
 	p := New(l)
 	program := p.ParseProgram()
 	checkParserErrors(t, p)
-	
+
 	if len(program.Statements) != 1 {
 		t.Fatalf("program.Statements does not contain %d statements. got=%d\n", 1, len(program.Statements))
 	}
@@ -557,7 +557,7 @@ func TestIfElseExpression(t *testing.T) {
 	p := New(l)
 	program := p.ParseProgram()
 	checkParserErrors(t, p)
-	
+
 	if len(program.Statements) != 1 {
 		t.Fatalf("program.Statements does not contain %d statements. got=%d\n", 1, len(program.Statements))
 	}
@@ -646,7 +646,7 @@ func TestFunctionLiteralParsing(t *testing.T) {
 
 func TestFunctionParameterParsing(t *testing.T) {
 	tests := []struct {
-		input string
+		input        string
 		expectParams []string
 	}{
 		{input: "fn() {};", expectParams: []string{}},
