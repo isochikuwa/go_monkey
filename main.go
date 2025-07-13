@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/isochikuwa/monkey/repl"
 	"os"
 	"os/user"
-	"github.com/isochikuwa/monkey/repl"
 )
 
 func main() {
