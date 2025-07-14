@@ -22,7 +22,7 @@ func TestEvalIntegerExpression(t *testing.T) {
 		{"-50 + 100 + -50", 0},
 		{"5 * 2 + 10", 20},
 		{"5 + 2 * 10", 25},
-		{"20 + 2 * -10", 0}, 
+		{"20 + 2 * -10", 0},
 		{"50 /2 * 2 + 10", 60},
 		{"2 * (5 + 10)", 30},
 		{"3 * 3 * 3 + 10", 37},
@@ -60,7 +60,7 @@ func testIntegerObject(t *testing.T, obj object.Object, expected int64) bool {
 
 func TestEvalBooleanExpression(t *testing.T) {
 	tests := []struct {
-		input string
+		input    string
 		expected bool
 	}{
 		{"true", true},
@@ -106,7 +106,7 @@ func testBooleanObject(t *testing.T, obj object.Object, expected bool) bool {
 
 func TestBangOperator(t *testing.T) {
 	tests := []struct {
-		input string
+		input    string
 		expected bool
 	}{
 		{"!true", false},
