@@ -23,7 +23,7 @@ func Modify(node Node, modifier ModifyFunc) Node {
 		node.Condition, _ = Modify(node.Condition, modifier).(Expression)
 		node.Consequence, _ = Modify(node.Consequence, modifier).(*BlockStatement)
 		if node.Alternative != nil {
-			node.Alternative, _ = Modify(node.Consequence, modifier).(*BlockStatement)
+			node.Alternative, _ = Modify(node.Alternative, modifier).(*BlockStatement)
 		}
 	case *BlockStatement:
 		for i := range node.Statements {
